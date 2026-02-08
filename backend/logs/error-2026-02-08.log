@@ -1,0 +1,88 @@
+[2026-02-08T05:31:25.369Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:31:25.676Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:00.742Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:00.987Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:03.317Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:03.465Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:14.226Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17
+[2026-02-08T05:33:14.420Z] TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:113:18
+    at Array.forEach (<anonymous>)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\express-mongo-sanitize\index.js:110:44
+    at Layer.handleRequest (C:\Users\Lenovo\Mobile App\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Lenovo\Mobile App\backend\node_modules\router\index.js:291:5)
+    at cors (C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\Mobile App\backend\node_modules\cors\lib\index.js:224:17

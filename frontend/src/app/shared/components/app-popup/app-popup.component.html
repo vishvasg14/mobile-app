@@ -1,0 +1,27 @@
+<ion-modal
+  [isOpen]="isOpen"
+  (ionModalDidDismiss)="close()">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{ title }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="close()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="app-popup__content">
+      <ng-content></ng-content>
+    </ion-content>
+
+    <ion-footer *ngIf="showFooter">
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="close()">Cancel</ion-button>
+          <ion-button color="primary" (click)="onConfirm()">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

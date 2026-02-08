@@ -1,0 +1,11 @@
+<ion-toolbar class="app-footer">
+  <ion-buttons slot="start">
+    <ion-button
+      *ngFor="let item of items"
+      fill="clear"
+      (click)="select(item)">
+      <ion-icon *ngIf="item.icon" [name]="item.icon"></ion-icon>
+      <span class="app-footer__label">{{ item.label }}</span>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>

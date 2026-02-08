@@ -1,0 +1,47 @@
+<app-page-shell title="My Cards" [showFooter]="true">
+  <app-button
+    slot="header-actions"
+    text="Logout"
+    fill="clear"
+    (clicked)="logout()"
+  >
+  </app-button>
+
+  <ion-list>
+    <ion-item *ngFor="let card of cards">
+      <ion-label>
+        <h2>{{ card.name || 'Unknown' }}</h2>
+        <p>{{ card.email || '-' }}</p>
+        <p>{{ card.phone || '-' }}</p>
+        <ion-note color="primary">{{ card.category || 'General' }}</ion-note>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="openActions(card)">
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab
+    slot="fixed"
+    vertical="bottom"
+    horizontal="end"
+    style="position: fixed"
+  >
+    <ion-fab-button
+      class="upload-fab"
+      (click)="scanCard()"
+      [disabled]="scanning"
+    >
+      <!-- <ion-icon name="scan-outline"></ion-icon> -->
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div slot="footer">
+    <app-footer [items]="footerItems" (itemSelected)="onFooterSelect($event)">
+    </app-footer>
+  </div>
+</app-page-shell>

@@ -1,0 +1,186 @@
+openapi: 3.0.0
+
+info:
+  title: Card Scanner API
+  description: Backend API for OCR-based business card scanner
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000/api
+    description: Local server
+
+tags:
+  - name: Auth
+    description: Authentication APIs
+  - name: Cards
+    description: Card OCR & management
+  - name: Public
+    description: Public read-only access
+  - name: Admin
+    description: Admin-only operations
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Card:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        company:
+          type: string
+        category:
+          type: string
+        isPublic:
+          type: boolean
+        publicCode:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+paths:
+  /cards/ocr:
+    post:
+      summary: OCR ingest card
+      tags: [Cards]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - imageBase64
+              properties:
+                imageBase64:
+                  type: string
+      responses:
+        201:
+          description: Card created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Card"
+
+  /public/{code}:
+    get:
+      summary: Public card access
+      tags: [Public]
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Public card
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Card"
+
+  /auth/register:
+    post:
+      summary: Register new user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        201:
+          description: User registered successfully
+
+  /auth/login:
+    post:
+      summary: Login user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Login successful
+
+  /auth/reset-password:
+    post:
+      summary: Reset password by email
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Password reset successful
+
+  /auth/users:
+    get:
+      summary: List all users
+      tags: [Auth]
+      responses:
+        200:
+          description: Users fetched successfully
+
+  /auth/me:
+    get:
+      summary: Get logged-in user info
+      tags: [Auth]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Current user details
+

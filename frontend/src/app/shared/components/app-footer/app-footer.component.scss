@@ -1,0 +1,10 @@
+.app-footer {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  border-top: 1px solid var(--ion-color-light, #f0f0f0);
+}
+
+.app-footer__label {
+  margin-left: 6px;
+  font-size: 13px;
+}

@@ -1,0 +1,13 @@
+<ion-item class="app-dropdown">
+  <ion-label *ngIf="label">{{ label }}</ion-label>
+  <ion-select
+    [interface]="interface"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [value]="value"
+    (ionChange)="onChange($event)">
+    <ion-select-option *ngFor="let opt of options" [value]="opt.value">
+      {{ opt.label }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>

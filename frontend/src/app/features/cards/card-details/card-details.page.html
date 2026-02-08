@@ -1,0 +1,42 @@
+<app-page-shell title="Card Details" [showFooter]="false">
+  <ion-button slot="header-actions" fill="clear" (click)="back()">
+    Back
+  </ion-button>
+
+  <ion-list *ngIf="card" class="card-details">
+    <ion-item>
+      <ion-label>
+        <h3>Name</h3>
+        <p>{{ card.name || '-' }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>Email</h3>
+        <p>{{ card.email || '-' }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>Phone</h3>
+        <p>{{ card.phone || '-' }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>Company</h3>
+        <p>{{ card.company || '-' }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>Category</h3>
+        <p>{{ card.category || '-' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="card-details__empty" *ngIf="!card && !loading">
+    Card not found.
+  </div>
+</app-page-shell>

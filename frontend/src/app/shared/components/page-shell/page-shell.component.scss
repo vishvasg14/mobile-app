@@ -1,0 +1,19 @@
+.page-shell__content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+}
+
+.page-shell__footer {
+  border-top: 1px solid var(--ion-color-light, #f0f0f0);
+}
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+ion-page {
+  height: 100%;
+}

@@ -1,0 +1,18 @@
+[2026-02-07T19:56:55.652Z] TypeError: next is not a function
+    at model.<anonymous> (C:\Users\Lenovo\Mobile App\backend\src\models\plugins\audit.plugin.js:21:5)
+    at Kareem.execPre (C:\Users\Lenovo\Mobile App\backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async exports.register (C:\Users\Lenovo\Mobile App\backend\src\controllers\auth.controller.js:32:5)
+[2026-02-07T19:57:02.843Z] TypeError: next is not a function
+    at model.<anonymous> (C:\Users\Lenovo\Mobile App\backend\src\models\plugins\audit.plugin.js:21:5)
+    at Kareem.execPre (C:\Users\Lenovo\Mobile App\backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async exports.register (C:\Users\Lenovo\Mobile App\backend\src\controllers\auth.controller.js:32:5)
+[2026-02-07T19:57:23.690Z] TypeError: next is not a function
+    at model.<anonymous> (C:\Users\Lenovo\Mobile App\backend\src\models\plugins\audit.plugin.js:21:5)
+    at Kareem.execPre (C:\Users\Lenovo\Mobile App\backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (C:\Users\Lenovo\Mobile App\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async exports.register (C:\Users\Lenovo\Mobile App\backend\src\controllers\auth.controller.js:32:5)

@@ -1,0 +1,11 @@
+<ion-button
+  [color]="color"
+  [fill]="fill"
+  [expand]="expand"
+  [disabled]="disabled || loading"
+  (click)="onClick()">
+  <ion-spinner *ngIf="loading" name="lines-small"></ion-spinner>
+  <ion-icon *ngIf="icon && !loading" [name]="icon"></ion-icon>
+  <span class="app-button__text">{{ loading ? 'Loading...' : text }}</span>
+  <ng-content></ng-content>
+</ion-button>

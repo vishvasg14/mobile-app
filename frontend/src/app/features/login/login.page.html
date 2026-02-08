@@ -1,0 +1,31 @@
+<app-page-shell title="Login">
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input
+      type="email"
+      [(ngModel)]="email">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input
+      type="password"
+      [(ngModel)]="password">
+    </ion-input>
+  </ion-item>
+
+  <div class="ion-margin-top">
+    <app-button
+      text="Login"
+      [loading]="loading"
+      expand="block"
+      (clicked)="login()">
+    </app-button>
+  </div>
+
+  <ion-text color="danger" *ngIf="error">
+    <p class="ion-margin-top">{{ error }}</p>
+  </ion-text>
+
+</app-page-shell>
