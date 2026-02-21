@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://10.248.11.83:5000/api',
+  apiBaseUrl: 'http://10.248.11.178:5000/api', // TODO: Replace 10.248.11.178 with your backend's actual local IP
 };
 
 /*

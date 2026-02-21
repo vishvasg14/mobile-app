@@ -7,6 +7,7 @@ const routes = require("./routes");
 const errorHandler = require("./middlewares/error.middleware");
 const { swaggerUi, swaggerDocument } = require("./config/swagger");
 const corsOptions = require("./config/cors");
+const interactionLogger = require("./middlewares/interactionLogger.middleware");
 
 const app = express();
 
@@ -55,6 +56,7 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 /**
  * API Routes
  */
+app.use(interactionLogger);
 app.use("/api", routes);
 
 /**

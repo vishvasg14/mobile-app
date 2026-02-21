@@ -4,7 +4,7 @@ import { ApiResponse } from '../models/api-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
 
   login(payload: { email: string; password: string }) {
     return this.api.post<ApiResponse<any>>('/auth/login', payload);
@@ -12,6 +12,10 @@ export class AuthService {
 
   register(payload: any) {
     return this.api.post<ApiResponse<any>>('/auth/register', payload);
+  }
+
+  resetPassword(payload: { email: string; password: string }) {
+    return this.api.post<ApiResponse<any>>('/auth/reset-password', payload);
   }
 
   me() {

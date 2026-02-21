@@ -15,6 +15,8 @@ const cardSchema = new mongoose.Schema(
     email: String,
     phone: String,
     company: String,
+    imageBase64: { type: String, select: false },
+    imageMimeType: { type: String, default: "image/jpeg", select: false },
 
     rawText: { type: String, required: true },
     category: { type: String, default: "General" },

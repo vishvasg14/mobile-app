@@ -7,7 +7,7 @@ const { successResponse } = require("../utils/response");
 
 exports.ingestCard = async (req, res, next) => {
   try {
-    const { imageBase64 } = req.body;
+    const { imageBase64, imageFormat } = req.body;
     if (!imageBase64) {
       return successResponse({
         res,
@@ -20,10 +20,25 @@ exports.ingestCard = async (req, res, next) => {
     const parsed = parseContactInfo(rawText);
     const category = categorize(rawText);
 
+    const formatToMime = {
+      jpg: "image/jpeg",
+      jpeg: "image/jpeg",
+      png: "image/png",
+      webp: "image/webp",
+      gif: "image/gif",
+      heic: "image/heic",
+      heif: "image/heif"
+    };
+
+    const normalizedFormat = String(imageFormat || "jpeg").toLowerCase();
+    const imageMimeType = formatToMime[normalizedFormat] || "image/jpeg";
+
     const card = new Card({
       userId: req.user.id,
       rawText,
       category,
+      imageBase64,
+      imageMimeType,
       ...parsed
     });
 
@@ -52,7 +67,9 @@ exports.getMyCards = async (req, res) => {
 };
 
 exports.getMyCardById = async (req, res) => {
-  const card = await Card.findOne({ _id: req.params.id, userId: req.user.id });
+  const card = await Card.findOne({ _id: req.params.id, userId: req.user.id }).select(
+    "+imageBase64 +imageMimeType"
+  );
 
   if (!card) {
     return successResponse({
@@ -142,7 +159,9 @@ exports.adminGetAllCards = async (req, res) => {
 };
 
 exports.getPublicCard = async (req, res) => {
-  const card = await Card.findOne({ publicCode: req.params.code, isPublic: true });
+  const card = await Card.findOne({ publicCode: req.params.code, isPublic: true }).select(
+    "+imageBase64 +imageMimeType"
+  );
 
   if (!card) {
     return successResponse({ res, responseCode: 404, responseMessage: "Card not found" });
