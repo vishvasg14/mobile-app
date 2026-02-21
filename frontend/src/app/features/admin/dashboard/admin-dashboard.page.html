@@ -1,0 +1,87 @@
+<app-page-shell title="Admin Dashboard" [showFooter]="false">
+  <ion-button slot="header-actions" fill="clear" (click)="backToCards()">
+    Cards
+  </ion-button>
+
+  <div class="controls">
+    <ion-segment [value]="sinceHours" (ionChange)="onWindowChange(+($event.detail.value || 24))">
+      <ion-segment-button [value]="1">1h</ion-segment-button>
+      <ion-segment-button [value]="24">24h</ion-segment-button>
+      <ion-segment-button [value]="72">72h</ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div *ngIf="data as d">
+    <ion-grid class="summary-grid">
+      <ion-row>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Requests</ion-card-subtitle>
+              <ion-card-title>{{ d.totals.requests }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Errors</ion-card-subtitle>
+              <ion-card-title color="danger">{{ d.totals.errors }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Success</ion-card-subtitle>
+              <ion-card-title color="success">{{ d.totals.success }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Top IPs</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item *ngFor="let row of d.topIps">
+          <ion-label>{{ row.ip }}</ion-label>
+          <ion-note slot="end">{{ row.hits }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Top Paths</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item *ngFor="let row of d.topPaths">
+          <ion-label>{{ row.path }}</ion-label>
+          <ion-note slot="end">{{ row.hits }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Recent Interactions</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item *ngFor="let row of d.recent">
+          <ion-label>
+            <h3>{{ row.method }} {{ row.path }}</h3>
+            <p>{{ row.ip }} | {{ row.createdAt | date:'short' }}</p>
+          </ion-label>
+          <ion-note slot="end" [color]="row.statusCode >= 400 ? 'danger' : 'success'">
+            {{ row.statusCode }}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+
+  <ion-spinner *ngIf="loading" class="loading"></ion-spinner>
+</app-page-shell>

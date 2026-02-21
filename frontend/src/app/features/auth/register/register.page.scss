@@ -2,9 +2,9 @@
   width: 100%;
 }
 
-.login-bg {
+.register-bg {
   --ion-background-color: transparent;
-  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  background: linear-gradient(135deg, #0f2027 0%, #1c3f53 48%, #1f6f8b 100%);
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -16,12 +16,12 @@
 
 .hero-illustration {
   position: absolute;
-  top: -20px;
-  right: -20px;
+  top: -18px;
+  left: -20px;
   width: 40%;
   max-width: 420px;
   opacity: 0.85;
-  transform: rotate(-8deg) translateZ(0);
+  transform: rotate(8deg) translateZ(0);
   filter: blur(2px);
   pointer-events: none;
 }
@@ -81,8 +81,8 @@
 }
 
 .field-input:focus {
-  border-color: #6ce0ff;
-  box-shadow: 0 0 0 2px rgba(108, 224, 255, 0.18);
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
 }
 
 .password-field .field-input {
@@ -95,7 +95,7 @@
   bottom: 7px;
   border: 0;
   background: transparent;
-  color: #6ce0ff;
+  color: #72e1d1;
   width: 32px;
   height: 32px;
   display: inline-flex;
@@ -108,107 +108,21 @@
 }
 
 .actions {
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
-.remember-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.remember-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.login-btn {
-  --background: linear-gradient(90deg, #7b61ff 0%, #6ce0ff 100%);
+.submit-btn {
+  --background: linear-gradient(90deg, #18bba8 0%, #60a5fa 100%);
   --box-shadow: none;
   border-radius: 10px;
-}
-
-.divider {
-  text-align: center;
-  margin: 18px 0 12px 0;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.social-row {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-}
-
-.social-row ion-button {
-  flex: 1 1 0;
-  --color: #fff;
-  --padding-start: 10px;
-  --padding-end: 10px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.social-row ion-icon {
-  margin-right: 6px;
-}
-
-.input ion-button {
-  --color: #6ce0ff;
-  --padding-end: 8px;
-}
-
-.input ion-button ion-icon {
-  font-size: 20px;
-}
-
-.biometric-row {
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.biometric-row ion-button {
-  --padding-start: 6px;
-  --padding-end: 6px;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register-row {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.admin-row {
-  display: flex;
-  justify-content: center;
-}
-
-.admin-row ion-button {
-  --color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 420px) {
   .hero-illustration {
     display: none;
   }
+
   .glass-card {
     padding: 20px;
   }
-}
-
-.keyboard-open .hero-illustration {
-  opacity: 0.05;
-  transform: scale(0.95);
 }

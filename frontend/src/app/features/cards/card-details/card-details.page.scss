@@ -4,15 +4,34 @@
   margin-top: 24px;
 }
 
-ion-item h3 {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--ion-color-medium, #666);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.card-details ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --background: transparent;
 }
 
-ion-item p {
-  margin: 4px 0 0;
-  font-size: 1rem;
+ion-text small {
+  display: block;
+  margin: 4px 0 10px;
+}
+
+.raw-text {
+  white-space: pre-wrap;
+  line-height: 1.4;
+  margin: 8px 0 0;
+}
+
+.scanned-image {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.save-btn {
+  margin-top: 16px;
 }

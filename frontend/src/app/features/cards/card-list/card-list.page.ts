@@ -11,7 +11,10 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 import { CardService } from '../../../core/services/card.service';
 import { TokenService } from '../../../core/auth/token.service';
+import { CurrentUserService } from '../../../core/auth/current-user.service';
 import { ApiService } from '../../../core/services/api.service';
+import { CardImageVaultService } from '../../../core/storage/card-image-vault.service';
+import { CloudSyncHookService } from '../../../core/sync/cloud-sync-hook.service';
 import {
   AppButtonComponent,
   AppFooterComponent,
@@ -35,6 +38,7 @@ export class CardListPage implements OnInit {
   cards: any[] = [];
   loading = false;
   scanning = false;
+  isAdmin = false;
   footerItems = [
     { label: 'Cards', icon: 'albums' },
     { label: 'Scan', icon: 'scan-outline', value: 'scan' },
@@ -45,13 +49,17 @@ export class CardListPage implements OnInit {
     private cardService: CardService,
     private api: ApiService,
     private tokenService: TokenService,
+    private currentUser: CurrentUserService,
     private router: Router,
     private toastCtrl: ToastController,
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
-  ) {}
+    private imageVault: CardImageVaultService,
+    private cloudSyncHooks: CloudSyncHookService,
+  ) { }
 
   ngOnInit() {
+    this.isAdmin = this.currentUser.getRole() === 'ADMIN';
     this.loadCards();
   }
 
@@ -87,9 +95,24 @@ export class CardListPage implements OnInit {
       this.api
         .post('/cards/ocr', {
           imageBase64: image.base64String,
+          imageFormat: image.format || 'jpeg',
         })
         .subscribe({
           next: async (res: any) => {
+            const createdCard = res?.responseObject;
+            if (createdCard?._id && image.base64String) {
+              const format = String(image.format || 'jpeg').toLowerCase();
+              const mimeType = format === 'png' ? 'image/png' : 'image/jpeg';
+              await this.imageVault.saveCardImage(
+                createdCard._id,
+                image.base64String,
+                mimeType,
+                'pending_upload',
+              );
+              await this.cloudSyncHooks.onLocalImageSaved(createdCard._id);
+              await this.cloudSyncHooks.onCardSynced(createdCard._id);
+            }
+
             this.scanning = false;
             await this.showToast('Card scanned successfully');
             this.loadCards();
@@ -128,7 +151,9 @@ export class CardListPage implements OnInit {
     this.showToast('Link copied');
   }
 
-  async openActions(card: any) {
+  async openActions(card: any, event?: Event) {
+    event?.stopPropagation();
+
     const buttons: any[] = [
       {
         text: 'View',
@@ -140,19 +165,19 @@ export class CardListPage implements OnInit {
       },
       card.isPublic
         ? {
-            text: 'Share link',
-            handler: () => this.copyLink(card),
-          }
+          text: 'Share link',
+          handler: () => this.copyLink(card),
+        }
         : {
-            text: 'Make public',
-            handler: () => this.togglePublic(card),
-          },
+          text: 'Make public',
+          handler: () => this.togglePublic(card),
+        },
       card.isPublic
         ? {
-            text: 'Make private',
-            role: 'destructive',
-            handler: () => this.togglePublic(card),
-          }
+          text: 'Make private',
+          role: 'destructive',
+          handler: () => this.togglePublic(card),
+        }
         : null,
       {
         text: 'Cancel',
@@ -230,6 +255,10 @@ export class CardListPage implements OnInit {
   logout() {
     this.tokenService.clear();
     this.router.navigate(['/login']);
+  }
+
+  openAdminDashboard() {
+    this.router.navigate(['/admin/dashboard']);
   }
 
   async showToast(message: string) {

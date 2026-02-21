@@ -2,18 +2,20 @@ const mongoose = require("mongoose");
 const { connectDB } = require("../src/config");
 const User = require("../src/models/User");
 const { hashPassword } = require("../src/utils/password");
-const ROLES = require("../src/constants/roles");
+const ROLES = require("../src/constants/Roles");
 
 const ADMIN = {
   name: "Admin",
   email: "Admin123@gmail.com",
-  password: "Admin@123"
+  password: "Admin@123",
 };
 
 const run = async () => {
   await connectDB();
 
-  const existing = await User.findOne({ email: ADMIN.email }).select("+password");
+  const existing = await User.findOne({ email: ADMIN.email }).select(
+    "+password",
+  );
   const hashed = await hashPassword(ADMIN.password);
 
   if (existing) {
@@ -28,7 +30,7 @@ const run = async () => {
       name: ADMIN.name,
       email: ADMIN.email,
       password: hashed,
-      role: ROLES.ADMIN
+      role: ROLES.ADMIN,
     });
     console.log("Admin user created:", ADMIN.email);
   }

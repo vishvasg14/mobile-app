@@ -6,9 +6,17 @@
     (clicked)="logout()"
   >
   </app-button>
+  <app-button
+    *ngIf="isAdmin"
+    slot="header-actions"
+    text="Dashboard"
+    fill="clear"
+    (clicked)="openAdminDashboard()"
+  >
+  </app-button>
 
   <ion-list>
-    <ion-item *ngFor="let card of cards">
+    <ion-item *ngFor="let card of cards" button detail="true" (click)="viewCard(card)">
       <ion-label>
         <h2>{{ card.name || 'Unknown' }}</h2>
         <p>{{ card.email || '-' }}</p>
@@ -17,7 +25,7 @@
       </ion-label>
 
       <ion-buttons slot="end">
-        <ion-button fill="clear" (click)="openActions(card)">
+        <ion-button fill="clear" (click)="openActions(card, $event)">
           <ion-icon name="ellipsis-vertical"></ion-icon>
         </ion-button>
       </ion-buttons>
